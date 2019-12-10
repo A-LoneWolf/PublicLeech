@@ -79,7 +79,7 @@ def add_magnet(aria_instance, magnetic_link, c_file_name):
             options=options
         )
     except Exception as e:
-        return False, "**FAILED** \n" + str(e) + " \nPlease do not send SLOW links. Read /help"
+        return False, "**FAILED** \n" + str(e) + " \nPlease do not send SLOW torrents."
     else:
         return True, "" + download.gid + ""
 
@@ -98,7 +98,7 @@ def add_url(aria_instance, text_url, c_file_name):
             options=options
         )
     except Exception as e:
-        return False, "**FAILED** \n" + str(e) + " \nPlease do not send SLOW links. Read /help"
+        return False, "**FAILED** \n" + str(e) + " \nPlease do not send SLOW urls."
     else:
         return True, "" + download.gid + ""
 
