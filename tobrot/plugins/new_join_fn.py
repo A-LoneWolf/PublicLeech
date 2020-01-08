@@ -37,7 +37,7 @@ async def help_message_f(client, message):
     message_id = 99
     # display the /help message
     await message.reply_text(
-        f"please read the <a href='https://t.me/c/{channel_id}/{message_id}'>Pinned Message</a>",
+        f"Hey Welcome, Please DM The Owner @SoundWavePrime For any help and make sure to [join](https://t.me/joinchat/AAAAAFXutDxMesTDM84apg)",
         quote=True
     )
 
