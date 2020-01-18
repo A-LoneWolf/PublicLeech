@@ -30,7 +30,7 @@ async def aria_start():
     aria2_daemon_start_cmd = []
     # start the daemon, aria2c command
     aria2_daemon_start_cmd.append("aria2c")
-    # aria2_daemon_start_cmd.append("--allow-overwrite=true")
+    aria2_daemon_start_cmd.append("--allow-overwrite=true")
     aria2_daemon_start_cmd.append("--daemon=true")
     # aria2_daemon_start_cmd.append(f"--dir={DOWNLOAD_LOCATION}")
     # TODO: this does not work, need to investigate this.
@@ -175,7 +175,7 @@ async def call_apropriate_function(
     if message_to_send != "":
         mention_req_user = f"<a href='tg://user?id={user_id}'>Your Requested Files</a>\n\n"
         message_to_send = mention_req_user + message_to_send
-        message_to_send = message_to_send + "\n\n" + "#uploads @SoundWavePrime yaad ha na kya karna ha"
+        message_to_send = message_to_send + "\n\n" + "#uploads"
     else:
         message_to_send = "<i>FAILED</i> to upload files. 😞😞"
     await sent_message_to_update_tg_p.reply_to_message.reply_text(
@@ -218,12 +218,12 @@ async def check_progress_for_dl(aria2, gid, event, previous_message):
                     previous_message = msg
             else:
                 msg = file.error_message
-                await event.edit(f"`{msg}`")
+                await event.edit(f"**{msg}**")
                 return False
             await asyncio.sleep(EDIT_SLEEP_TIME_OUT)
             await check_progress_for_dl(aria2, gid, event, previous_message)
         else:
-            await event.edit(f"File Downloaded Successfully: `{file.name}`")
+            await event.edit(f"File Downloaded Successfully: **{file.name}**")
             return True
     except Exception as e:
         LOGGER.info(str(e))
